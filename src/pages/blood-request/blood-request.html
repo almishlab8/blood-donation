@@ -1,0 +1,89 @@
+<!--
+  Generated template for the RequiredPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark-red">
+      <ion-title>طلب دم</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="rightSide">
+      <!-- <div *ngFor="let item of state_table | async">
+          <p>{{item.state}}</p>
+      </div> -->
+      <ion-item>
+          <ion-label floating>اسم المريض</ion-label>
+          <ion-input type="text" [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>فصيلة الدم </ion-label>
+
+          <ion-select [(ngModel)]="bloodtype" cancelText="الغاء" okText="اختار ">
+              <ion-option value="A+">A+</ion-option>
+              <ion-option value="A−">A-</ion-option>
+              <ion-option value="O−">O−</ion-option>
+              <ion-option value="O+">O+</ion-option>
+              <ion-option value="B−">B− </ion-option>
+              <ion-option value="B+">B+</ion-option>
+              <ion-option value="AB−">AB−</ion-option>
+              <ion-option value="AB+">AB+</ion-option>
+
+          </ion-select>
+
+      </ion-item>
+     
+      <ion-item>
+          <ion-label floating>عمر المريض </ion-label>
+          <ion-input type="tel" [(ngModel)]="age"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>رقم الهاتف </ion-label>
+          <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+              <ion-label floating>المحافظة </ion-label>
+  
+              <ion-select [(ngModel)]="state" cancelText="الغاء" okText="اختار ">
+                  <ion-option value="بغداد">بغداد</ion-option>
+                  <ion-option value="البصرة">البصرة</ion-option>
+                  <ion-option value="نينوى">نينوى</ion-option>
+                  <ion-option value="الانبار">الانبار</ion-option>
+                  <ion-option value="أربيل">أربيل </ion-option>
+                  <ion-option value="بابل">بابل</ion-option>
+                  <ion-option value="دهوك">دهوك</ion-option>
+                  <ion-option value="القادسية">القادسية</ion-option>
+                  <ion-option value="ديالى">ديالى</ion-option>
+                  <ion-option value="ذي قار">ذي قار</ion-option>
+                  <ion-option value="السليمانية">السليمانية</ion-option>
+                  <ion-option value="صلاح الدين">صلاح الدين</ion-option>
+                  <ion-option value="كركوك">كركوك</ion-option>
+                  <ion-option value="كربلاء">كربلاء</ion-option>
+                  <ion-option value="المثنى">المثنى</ion-option>
+                  <ion-option value="ميسان">ميسان</ion-option>
+                  <ion-option value="النجف"> النجف</ion-option>
+                  <ion-option value="واسط">واسط</ion-option>
+
+              </ion-select>
+  
+          </ion-item>
+          
+      <ion-item>
+          <ion-label floating>المستشفى </ion-label>
+          <ion-input type="text" [(ngModel)]="location"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>ملاحظات اخرى </ion-label>
+          <ion-textarea type="text" [(ngModel)]="notes"></ion-textarea>
+      </ion-item>
+
+  </ion-list>
+  <button side="right" color="dark-red" ion-button block (click)="addRequired(name , bloodtype ,age , phone , location , state , notes)">اطلب الان </button>
+</ion-content>

@@ -1,17 +1,53 @@
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="dark-red">
+    <ion-title>الصفحة الرئيسية</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content >
+
+
+  <ion-slides  pager loop >
+    <ion-slide>
+      <img src="./assets/imgs/blood/blood1.jpg" class="slide-image"/>
+      <h3 class="slide-title">محتاج دم؟</h3>
+      <p class="dis">اكتب ما تحتاجه هنا وسيتم عرضه للجميع</p>
+      <button  ion-button large clear icon-end color="danger" (click)="request()">
+          دخول
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="./assets/imgs/blood/blood2.jpg" class="slide-image"/>
+      <h3 class="slide-title">محتاج متبرع بالدم؟</h3>
+      <p class="dis">ابحث هنا عن جميع المتبرعين الذين يستطيعون مساعدتك وتلبية ما تحتاج</p>
+      <button  ion-button large clear icon-end color="danger" (click)="donors()">
+          دخول
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="./assets/imgs/blood/blood4.png" class="slide-image"/>
+      <h3 class="slide-title"> تريد تتبرع الان ؟</h3>
+      <p class="dis">يعرض هنا جميع الاشخاص الذين هم بحاجة الى تبرع دم مع بياناتهم</p>
+      <button  ion-button large clear icon-end color="danger" (click)="showRequried()">
+          دخول
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="./assets/imgs/blood/blood6.jpg" class="slide-image"/>
+      <h4  class="slide-title fon">مستعد للتبرع في اي وقت ؟</h4>
+      <button  ion-button large clear icon-end color="danger" (click)="addDonors()">
+        سجل بياناتك
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+
+  </ion-slides>
+  
 </ion-content>
