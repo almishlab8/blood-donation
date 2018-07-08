@@ -9,4 +9,41 @@
 
 <ion-content padding>
 
+  <ion-card *ngFor="let item of mydata  ">
+    <ion-grid *ngIf="item.hide == 0" >
+         <ion-item >
+             <ion-avatar item-start>
+                 <img src="http://www.ativo.co.za/wp-content/uploads/2017/06/005-profile.png">
+             </ion-avatar>
+             <h2>{{item.name}}</h2>
+             <ion-icon *ngIf="item.added_by === usertoken" name="trash" class="deletBtn" (click)="delete(item.key)"></ion-icon>
+             
+             <p style="display:inline">{{item.time}}</p>
+         </ion-item>
+ 
+ 
+ 
+         <ion-card-content>
+             <p>فصيلة الدم : {{item.bloodtype}}</p>
+             <p> المحافظة : {{item.state}}</p>
+             <p> المستشفى : {{item.location}}</p>
+             <p> عمر المريض : {{item.age}} سنة</p>
+             <p> ملاحظات اخرى:
+             </p>
+             <blockquote>{{item.notes}}</blockquote>
+         </ion-card-content>
+ 
+         <ion-row>
+             <ion-col>
+                 <button ion-button block  class="callBtn"  color="dark-green" (click)="call(item.phone)">
+                     <div style="margin:8px">  اتصل </div>
+                     <ion-icon name="call" ></ion-icon>
+                 </button>
+             </ion-col>
+ 
+ 
+         </ion-row>
+     </ion-grid>
+     </ion-card>
+
 </ion-content>

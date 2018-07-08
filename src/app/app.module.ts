@@ -12,11 +12,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SettingsPage } from '../pages/settings/settings';
 
+import {LoginPage} from '../pages/login/login';
+import {RegisterPage} from '../pages/register/register';
 import {DevelopersPage} from '../pages/developers/developers';
 import {AllDonorsPage} from '../pages/all-donors/all-donors';
 import {BloodRequestPage} from '../pages/blood-request/blood-request';
 import {ShowRequestsPage} from '../pages/show-requests/show-requests';
 import {DonorsRegisterPage} from '../pages/donors-register/donors-register';
+
+import { AuthProvider } from '../providers/auth/auth';
+import { CrudProvider } from '../providers/crud/crud';
+
+
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http'; 
 
 @NgModule({
   declarations: [
@@ -30,16 +39,16 @@ import {DonorsRegisterPage} from '../pages/donors-register/donors-register';
     BloodRequestPage,
     ShowRequestsPage,
     DonorsRegisterPage,
+    LoginPage,
+    RegisterPage,
     TabsPage
   ],
   imports: [
     
     BrowserModule,
-    IonicModule.forRoot(
-      MyApp, {
-        backButtonText: 'رجوع'
-      },
-    ),
+    IonicModule.forRoot(MyApp, {backButtonText: 'رجوع'},),
+    IonicStorageModule.forRoot()  ,
+    HttpModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,11 +62,15 @@ import {DonorsRegisterPage} from '../pages/donors-register/donors-register';
     BloodRequestPage,
     ShowRequestsPage,
     DonorsRegisterPage,
+    LoginPage,
+    RegisterPage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AuthProvider,
+    CrudProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

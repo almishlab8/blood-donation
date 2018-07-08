@@ -20,13 +20,13 @@
       </div> -->
       <ion-item>
           <ion-label floating>اسم المريض</ion-label>
-          <ion-input type="text" [(ngModel)]="name"></ion-input>
+          <ion-input type="text" [(ngModel)]="requestData.name"></ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label floating>فصيلة الدم </ion-label>
 
-          <ion-select [(ngModel)]="bloodtype" cancelText="الغاء" okText="اختار ">
+          <ion-select [(ngModel)]="requestData.bloodtype" cancelText="الغاء" okText="اختار ">
               <ion-option value="A+">A+</ion-option>
               <ion-option value="A−">A-</ion-option>
               <ion-option value="O−">O−</ion-option>
@@ -42,16 +42,16 @@
      
       <ion-item>
           <ion-label floating>عمر المريض </ion-label>
-          <ion-input type="tel" [(ngModel)]="age"></ion-input>
+          <ion-input type="tel" [(ngModel)]="requestData.age"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label floating>رقم الهاتف </ion-label>
-          <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+          <ion-input type="tel" [(ngModel)]="requestData.phone"></ion-input>
       </ion-item>
       <ion-item>
               <ion-label floating>المحافظة </ion-label>
   
-              <ion-select [(ngModel)]="state" cancelText="الغاء" okText="اختار ">
+              <ion-select [(ngModel)]="requestData.state" cancelText="الغاء" okText="اختار ">
                   <ion-option value="بغداد">بغداد</ion-option>
                   <ion-option value="البصرة">البصرة</ion-option>
                   <ion-option value="نينوى">نينوى</ion-option>
@@ -77,13 +77,13 @@
           
       <ion-item>
           <ion-label floating>المستشفى </ion-label>
-          <ion-input type="text" [(ngModel)]="location"></ion-input>
+          <ion-input type="text" [(ngModel)]="requestData.location"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label floating>ملاحظات اخرى </ion-label>
-          <ion-textarea type="text" [(ngModel)]="notes"></ion-textarea>
+          <ion-textarea type="text" [(ngModel)]="requestData.notes"></ion-textarea>
       </ion-item>
 
   </ion-list>
-  <button side="right" color="dark-red" ion-button block (click)="addRequired(name , bloodtype ,age , phone , location , state , notes)">اطلب الان </button>
+  <button side="right" color="dark-red" ion-button block (click)="addRequired()">اطلب الان </button>
 </ion-content>

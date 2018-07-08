@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ShowRequestsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CrudProvider } from '../../providers/crud/crud';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -15,11 +12,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ShowRequestsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  mydata:any
+  usertoken:any
+  constructor(public navCtrl: NavController,
+    public crudProvider:CrudProvider,public storage: Storage ) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowRequestsPage');
+      this.crudProvider.getPosts().then((data) => {
+     
+        this.mydata = data["data"] 
+        this.storage.get('token').then((value) => {
+          this.usertoken=value;
+ 
+        });
+        console.log( this.mydata)
+      });
+    
+
   }
 
 }

@@ -1,3 +1,15 @@
-page-show-requests {
 
+page-show-requests {
+    p{
+        font-weight: bold
+    }
+    blockquote{
+        font-weight: bold
+    }
+}
+.card{
+    direction: rtl;
+}
+.callBtn{
+    font-size:large;
 }
