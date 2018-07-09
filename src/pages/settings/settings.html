@@ -32,8 +32,10 @@
     مطورين التطبيق
     <ion-icon name='code-working' item-start></ion-icon>
   </button>
+
+
       <button ion-item *ngIf="isLogin ; let user; else showLogin" (click)="logout()">
-   تسجيل خروج 
+   تسجيل خروج {{userName}}
     <ion-icon ios="ios-log-out" md="md-log-out" item-start></ion-icon>
   </button>  
   <ng-template #showLogin>
@@ -42,5 +44,7 @@
        <ion-icon ios="ios-log-in" md="md-log-in" item-start></ion-icon>
      </button>  
   </ng-template>
+
+
 </ion-list>
 </ion-content>

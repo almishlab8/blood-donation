@@ -25,7 +25,7 @@ export class BloodRequestPage {
     phone: '' ,
     location: '', 
     state:'' ,
-    notes:'' ,
+    notes:' ' ,
     hide: false ,
     added_by: '' 
     
@@ -41,7 +41,7 @@ export class BloodRequestPage {
 
   }
   addRequired(){
-    this.storage.get('token').then((value) => {
+    this.storage.get('userId').then((value) => {
       this.requestData.added_by=value;
    });
    this.requestData.hide=false;

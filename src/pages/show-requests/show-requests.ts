@@ -13,15 +13,15 @@ import { Storage } from '@ionic/storage';
 export class ShowRequestsPage {
 
   mydata:any
-  usertoken:any
+  userId:any
   constructor(public navCtrl: NavController,
     public crudProvider:CrudProvider,public storage: Storage ) {
 
       this.crudProvider.getPosts().then((data) => {
      
         this.mydata = data["data"] 
-        this.storage.get('token').then((value) => {
-          this.usertoken=value;
+        this.storage.get('userId').then((value) => {
+          this.userId=value;
  
         });
         console.log( this.mydata)

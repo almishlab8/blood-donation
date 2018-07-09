@@ -15,7 +15,7 @@ import { ToastController } from 'ionic-angular';
 })
 export class SettingsPage {
 isLogin:boolean=false;
-
+userName:any;
   constructor(public navCtrl: NavController, 
     private toastCtrl: ToastController,
     public navParams: NavParams,public storage: Storage ,
@@ -30,9 +30,14 @@ isLogin:boolean=false;
       if (!UserIsLogin) {this.isLogin=false}
       else{this.isLogin=true}
     }) 
+    this.storage.get('userName').then((userName) => {
+   this.userName=userName;
+    }) 
 
 
   }
+
+
   aboutModal() {
     let modal = this.modalCtrl.create(AboutPage);
     modal.present();
@@ -52,6 +57,8 @@ isLogin:boolean=false;
     this.storage.set('token', '');
     this.isLogin=false;
     this.storage.set('UserIsLogin', false);
+    this.storage.set('userId', '');
+    this.storage.set('userName', '');
     let toast = this.toastCtrl.create({
       message: 'تم تسجيل الخروج من الحساب ',
       duration: 3000,

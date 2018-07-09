@@ -16,6 +16,8 @@ import { Http , Headers } from '@angular/http';
 @Injectable()
 export class AuthProvider {
   public token: any;
+  public id: any;
+  public username: any;
 
   constructor(public storage: Storage , public http: Http) {
     console.log('Hello AuthProvider Provider');
@@ -66,6 +68,7 @@ export class AuthProvider {
                  this.token = data.token;
                   this.storage.set('token', data.token);
                   this.storage.set('UserIsLogin', true);
+                  this.getUserInfo();
             }
          
            
@@ -108,7 +111,31 @@ export class AuthProvider {
    }
 
 
+getUserInfo(){
+  return new Promise((resolve, reject) => {
+    this.storage.get('token').then((value) => {
 
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', 'Bearer '+value);
+
+      console.log('value: ' + value);
+ 
+      this.http.get(apiKey+'/users', {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          this.storage.set('userId', data.id);
+          console.log('id: ' + data.id);
+          this.storage.set('userName', data.name);
+          console.log('name: ' + data.name);
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        }); 
+    }) 
+
+  });
+}
 
 
 

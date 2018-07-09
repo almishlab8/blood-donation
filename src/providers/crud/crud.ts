@@ -32,6 +32,8 @@ export class CrudProvider {
      this.storage.get('token').then((value) => {
 
        let headers = new Headers();
+       headers.append('Access-Control-Allow-Origin' , '*');
+       headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
        headers.append('Content-Type', 'application/json');
        headers.append('Authorization', 'Bearer '+value);
 
@@ -62,6 +64,8 @@ export class CrudProvider {
    this.storage.get('token').then((value) => {
 
      let headers = new Headers();
+     headers.append('Access-Control-Allow-Origin' , '*');
+     headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
      headers.append('Content-Type', 'application/json');
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
@@ -90,6 +94,8 @@ editPosts(id,postInfo){
    this.storage.get('token').then((value) => {
 
      let headers = new Headers();
+     headers.append('Access-Control-Allow-Origin' , '*');
+       headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
      headers.append('Content-Type', 'application/json');
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
@@ -117,6 +123,8 @@ deletePosts(id ){
    this.storage.get('token').then((value) => {
 
      let headers = new Headers();
+     headers.append('Access-Control-Allow-Origin' , '*');
+       headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
      headers.append('Content-Type', 'application/json');
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
