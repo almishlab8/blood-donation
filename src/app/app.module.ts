@@ -21,11 +21,13 @@ import {ShowRequestsPage} from '../pages/show-requests/show-requests';
 import {DonorsRegisterPage} from '../pages/donors-register/donors-register';
 
 import { AuthProvider } from '../providers/auth/auth';
-import { CrudProvider } from '../providers/crud/crud';
-
+import { BloodRequestProvider } from '../providers/crud/bloodRequestProvider';
+import { DonorProvider } from '../providers/crud/donorProvider';
+import { FeedbackProvider } from '../providers/crud/feedbackProvider';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http'; 
+
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     AuthProvider,
-    CrudProvider,
+    BloodRequestProvider,
+    FeedbackProvider,
+    DonorProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

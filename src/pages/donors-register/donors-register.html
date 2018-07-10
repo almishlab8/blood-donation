@@ -13,13 +13,13 @@
   <ion-list class="rightSide">
             <ion-item>
                 <ion-label floating>اسم المتبرع</ion-label>
-                <ion-input type="text" [(ngModel)]="name"></ion-input>
+                <ion-input type="text" [(ngModel)]="donorData.name"></ion-input>
             </ion-item>
     
             <ion-item>
                 <ion-label floating>فصيلة الدم </ion-label>
     
-                <ion-select [(ngModel)]="bloodtype" cancelText="الغاء" okText="اختار ">
+                <ion-select [(ngModel)]="donorData.bloodtype" cancelText="الغاء" okText="اختار ">
                     <ion-option value="A+">A+</ion-option>
                     <ion-option value="A−">A-</ion-option>
                     <ion-option value="O−">O−</ion-option>
@@ -34,12 +34,12 @@
             </ion-item>
             <ion-item>
                 <ion-label floating>رقم الهاتف </ion-label>
-                <ion-input type="tel" [(ngModel)]="phone"></ion-input>
+                <ion-input type="tel" [(ngModel)]="donorData.phone"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label floating>المحافظة </ion-label>
     
-                <ion-select [(ngModel)]="state" cancelText="الغاء" okText="اختار ">
+                <ion-select [(ngModel)]="donorData.state" cancelText="الغاء" okText="اختار ">
                     <ion-option value="بغداد">بغداد</ion-option>
                     <ion-option value="البصرة">البصرة</ion-option>
                     <ion-option value="نينوى">نينوى</ion-option>
@@ -64,13 +64,13 @@
             </ion-item>
             <ion-item>
                 <ion-label floating>العنوان </ion-label>
-                <ion-input type="text" [(ngModel)]="location"></ion-input>
+                <ion-input type="text" [(ngModel)]="donorData.location"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label floating>ملاحظات اخرى</ion-label>
-              <ion-input type="text" [(ngModel)]="note"></ion-input>
+              <ion-input type="text" [(ngModel)]="donorData.note"></ion-input>
           </ion-item>
     
         </ion-list>
-        <button side="right" color="dark-red" ion-button block (click)="addDonors(name , bloodtype , phone , location , note ,state)">تسجيل </button>
+        <button side="right" color="dark-red" ion-button block (click)="addDonor()">تسجيل </button>
 </ion-content>

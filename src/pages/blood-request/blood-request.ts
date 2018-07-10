@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CrudProvider } from '../../providers/crud/crud';
+import { BloodRequestProvider } from '../../providers/crud/bloodRequestProvider';
 import { ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import {LoginPage} from '../login/login';
 
 /**
  * Generated class for the BloodRequestPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
+
  */
 
 @IonicPage()
@@ -29,23 +28,23 @@ export class BloodRequestPage {
     hide: false ,
     added_by: '' 
     
-  }
+  } 
   constructor(public navCtrl: NavController, 
-    public crudProvider:CrudProvider,
+    public BloodRequestProvider:BloodRequestProvider,
     public storage: Storage ,
     private toastCtrl: ToastController,
     public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-
+  ionViewDidEnter(){
+    this.checkAuthState();
   }
   addRequired(){
     this.storage.get('userId').then((value) => {
       this.requestData.added_by=value;
    });
    this.requestData.hide=false;
-    this.crudProvider.insertPosts(this.requestData).then((result)=>{
+    this.BloodRequestProvider.insertPosts(this.requestData).then((result)=>{
       console.log(result)
       this.navCtrl.pop()
       let toast = this.toastCtrl.create({
@@ -61,4 +60,11 @@ export class BloodRequestPage {
     
    
    }
+   checkAuthState(){
+    this.storage.get('UserIsLogin').then((UserIsLogin) => {
+        if (!UserIsLogin) {
+          this.navCtrl.setRoot(LoginPage);
+        }   
+    });
+  }
 }

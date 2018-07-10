@@ -20,6 +20,11 @@
   
       عن التطبيق
    
+  <ion-item  *ngIf="isLogin">
+    {{userName}}
+        <ion-icon name='person' item-start></ion-icon>
+  </ion-item>   
+   
   <button ion-item  (click)="aboutModal()">
     معلومات التطبيق
     <ion-icon name='information-circle' item-start></ion-icon>
@@ -35,7 +40,7 @@
 
 
       <button ion-item *ngIf="isLogin ; let user; else showLogin" (click)="logout()">
-   تسجيل خروج {{userName}}
+   تسجيل خروج 
     <ion-icon ios="ios-log-out" md="md-log-out" item-start></ion-icon>
   </button>  
   <ng-template #showLogin>

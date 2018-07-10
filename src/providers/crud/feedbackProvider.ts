@@ -16,12 +16,12 @@ import { Storage } from '@ionic/storage';
   and Angular DI.
 */
 @Injectable()
-export class CrudProvider {
+export class FeedbackProvider {
 
   constructor(public storage: Storage ,
     public http: Http, 
      ) {
-    console.log('Hello CrudProvider Provider');
+    console.log('Hello FeedbackProvider Provider');
   }
 
 
@@ -39,7 +39,7 @@ export class CrudProvider {
 
        console.log('value: ' + value);
   
-       this.http.get(apiKey+'/allRequests', {headers: headers})
+       this.http.get(apiKey+'/allfeedbacks', {headers: headers})
          .map(res => res.json())
          .subscribe(data => {
            resolve(data);
@@ -70,7 +70,7 @@ export class CrudProvider {
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
 
-     this.http.post(apiKey+'/requeste',  JSON.stringify(postInfo),  {headers: headers})
+     this.http.post(apiKey+'/feedback',  JSON.stringify(postInfo),  {headers: headers})
        .map(res => res.json())
        .subscribe(data => {
          resolve(data);
@@ -100,7 +100,7 @@ editPosts(id,postInfo){
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
 
-     this.http.put(apiKey+'api/books/' +id ,  JSON.stringify(postInfo),  {headers: headers})
+     this.http.put(apiKey+'api/feedback/' +id ,  JSON.stringify(postInfo),  {headers: headers})
        .map(res => res.json())
        .subscribe(data => {
          resolve(data);
@@ -129,7 +129,7 @@ deletePosts(id ){
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
 
-     this.http.delete(apiKey+'api/books/' +id,    {headers: headers})
+     this.http.delete(apiKey+'api/feedback/' +id,    {headers: headers})
        .map(res => res.json())
        .subscribe(data => {
          resolve(data);

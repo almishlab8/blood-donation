@@ -28,13 +28,13 @@
 <ion-list >
 <ion-item>
   <ion-label floating>عنوان الموضوع </ion-label>
-  <ion-input type="text" [(ngModel)]="feedback_title"></ion-input>
+  <ion-input type="text" [(ngModel)]="feedbackData.title"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label floating>التفاصيل</ion-label>
-  <ion-textarea type="textarea" [(ngModel)]="feedback_subject"></ion-textarea>
+  <ion-textarea type="textarea" [(ngModel)]="feedbackData.comment"></ion-textarea>
 </ion-item>
 </ion-list>
-<button side="right" color="dark-red" ion-button block (click)="sendfeedback(feedback_title,feedback_subject)">ارسال </button>
+<button side="right" color="dark-red" ion-button block (click)="sendfeedback()">ارسال </button>
 
 </ion-content>
