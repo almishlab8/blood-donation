@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { DonorProvider } from '../../providers/crud/donorProvider';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
@@ -20,6 +20,8 @@ export class AllDonorsPage {
 
   donordata:any
   userId:any
+  filter=1
+
   constructor(public navCtrl: NavController,
     private toastCtrl: ToastController,
 
@@ -56,4 +58,23 @@ export class AllDonorsPage {
       })
       
     }
+
+    doRefresh(refresher) {
+      
+      this.DonorProvider.getPosts().then((data) => {
+     
+        this.donordata = data["data"] 
+        console.log( this.donordata)
+      });
+  
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        refresher.complete();
+      }, 2000);
+    }
+
+
+
+
+    
 }

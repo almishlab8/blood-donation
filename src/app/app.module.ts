@@ -1,3 +1,12 @@
+import { SettingsPageModule } from './../pages/settings/settings.module';
+import { RegisterPageModule } from './../pages/register/register.module';
+import { LoginPageModule } from './../pages/login/login.module';
+import { DonorsRegisterPageModule } from './../pages/donors-register/donors-register.module';
+import { ShowRequestsPageModule } from './../pages/show-requests/show-requests.module';
+import { BloodRequestPageModule } from './../pages/blood-request/blood-request.module';
+import { DevelopersPageModule } from './../pages/developers/developers.module';
+import { AllDonorsPageModule } from './../pages/all-donors/all-donors.module';
+import { AboutPageModule } from './../pages/about/about.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -27,27 +36,38 @@ import { FeedbackProvider } from '../providers/crud/feedbackProvider';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http'; 
+import { OneSignal } from '@ionic-native/onesignal';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+  
+   ContactPage,
     HomePage,
-    SettingsPage,
-    DevelopersPage,
-    AllDonorsPage,
-    BloodRequestPage,
-    ShowRequestsPage,
-    DonorsRegisterPage,
-    LoginPage,
-    RegisterPage,
+  //     AboutPage,
+  //   SettingsPage,
+  //  DevelopersPage,
+  //   AllDonorsPage,
+  //   BloodRequestPage,
+  //   ShowRequestsPage,
+  //   DonorsRegisterPage,
+  //   LoginPage,
+  //   RegisterPage,
     TabsPage
   ],
   imports: [
     
     BrowserModule,
+    SettingsPageModule,
+    BloodRequestPageModule,
+    ShowRequestsPageModule,
+    DonorsRegisterPageModule,
+    LoginPageModule,
+    RegisterPageModule,
+    AboutPageModule,
+    DevelopersPageModule,
+    AllDonorsPageModule,
     IonicModule.forRoot(MyApp, {backButtonText: 'رجوع'},),
     IonicStorageModule.forRoot()  ,
     HttpModule 
@@ -70,6 +90,7 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     StatusBar,
+    OneSignal,
     SplashScreen,
     AuthProvider,
     BloodRequestProvider,

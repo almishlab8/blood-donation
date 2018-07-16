@@ -2,23 +2,48 @@
 
   <ion-navbar color="dark-red">
       <ion-title>تبرع الان </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="funnel"></ion-icon>
+        </button>
+      
+        <ion-select [(ngModel)]="filter" interface="popover">
+            <ion-option value="1">الكل</ion-option>
+            <ion-option value="A+">A+</ion-option>
+            <ion-option value="A−">A-</ion-option>
+            <ion-option value="O−">O−</ion-option>
+            <ion-option value="O+">O+</ion-option>
+            <ion-option value="B−">B− </ion-option>
+            <ion-option value="B+">B+</ion-option>
+            <ion-option value="AB−">AB−</ion-option>
+            <ion-option value="AB+">AB+</ion-option>
+        </ion-select>
+     </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingText="اسحب للتحديث"
+        refreshingText="جاري التحديث">
+      </ion-refresher-content>
+      </ion-refresher>
+
 
   <ion-card *ngFor="let item of mydata  ">
-    <ion-grid *ngIf="item.hide == 0" >
+    <ion-grid *ngIf="item.hide == 0 && ((item.bloodtype == filter) || (filter == 1))" >
          <ion-item >
              <ion-avatar item-start>
-                 <img src="http://www.ativo.co.za/wp-content/uploads/2017/06/005-profile.png">
+                    <img src="./assets/imgs/user.png">
              </ion-avatar>
              <h2>{{item.name}}</h2>
              <ion-icon *ngIf="item.added_by == userId" name="trash" class="deletBtn" (click)="delete(item.id)"></ion-icon>
              
-             <p style="display:inline">{{item.time}}</p>
+             <p style="display:inline">{{item.created_at}}</p>
          </ion-item>
  
  
@@ -34,15 +59,13 @@
          </ion-card-content>
  
          <ion-row>
-             <ion-col>
-                 <button ion-button block  class="callBtn"  color="dark-green" (click)="call(item.phone)">
-                     <div style="margin:8px">  اتصل </div>
-                     <ion-icon name="call" ></ion-icon>
-                 </button>
-             </ion-col>
- 
- 
-         </ion-row>
+                <ion-col>
+                    <button ion-button block class="callBtn" color="dark-green" (click)="call(item.phone)">
+                    <div style="margin:8px">  اتصل <ion-icon style="padding-right: 15px" name="call" ></ion-icon>
+                    </div>
+                  </button>
+                </ion-col>
+            </ion-row>
      </ion-grid>
      </ion-card>
 

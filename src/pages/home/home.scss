@@ -4,15 +4,29 @@ ion-content {
     
 }
 .btn{
-    height: 70px;
+    height: 140px;
     font-size: 20px;
+    background-color: #b7514d;
+    color:#fff;
 }
 .btn-img{
-   height: 50px;
-padding-right: 50px;
+   height: 100px;
 padding-top: 2px;
 padding-bottom: 2px;
 }
 .dis{
     font-size: 10px;
+}
+[col-6] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 48%;
+    -ms-flex: 0 0 48%;
+    flex: 0 0 48%;
+    width: 48%;
+    max-width: 48%;
+}
+.button-inner {
+
+    display: grid;
+ 
 }

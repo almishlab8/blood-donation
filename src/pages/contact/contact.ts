@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams  ,ViewController, AlertController} from 'ionic-angular';
+import {  NavController, NavParams  ,ViewController, AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { FeedbackProvider } from '../../providers/crud/feedbackProvider';
 import {LoginPage} from '../login/login';

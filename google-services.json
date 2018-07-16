@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "384647428323",
+    "firebase_url": "https://blooddonation-iq.firebaseio.com",
+    "project_id": "blooddonation-iq",
+    "storage_bucket": "blooddonation-iq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384647428323:android:6be82829374dc143",
+        "android_client_info": {
+          "package_name": "com.cfori.bdonation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384647428323-sossnj65sevcu88chuel07agr7ueup54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpJivMRNrhrntBxaB-Q3m3u0rExGo5Jfo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

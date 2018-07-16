@@ -6,6 +6,14 @@ page-show-requests {
     blockquote{
         font-weight: bold
     }
+    .select-md {
+    padding: 0px;
+}
+.select-text {
+    padding-right: 40px;
+    color: white;
+    font-size: large;
+}
 }
 .card{
     direction: rtl;
@@ -17,4 +25,10 @@ page-show-requests {
     float: left;
     color: #be5251;
     font-size: 1.6em;
+}
+.refresher-refreshing-text {
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    margin-top: -25px;
 }

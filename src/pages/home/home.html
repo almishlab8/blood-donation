@@ -6,9 +6,43 @@
 </ion-header>
 
 <ion-content >
+  <ion-grid *ngIf="x==0">
+           <img src="./assets/imgs/index.png" height="185px" alt=""> 
+    <ion-row style="padding-top:6px;">
+        <button ion-button color="danger" outline class="btn" col-6  (click)="request()">
+            <img  class="btn-img" src="./assets/imgs/b8.png"/>
+        طلب دم                
+       </button>
+       <button ion-button color="danger" outline class="btn" col-6 (click)="showRequried()">
+          <img  class="btn-img" src="./assets/imgs/b7.png"/>
+          المحتاجين                
+     </button>
+    </ion-row>
+
+    <!-- <ion-row style="padding-top:30px;">
 
 
-  <ion-slides  pager loop >
+    </ion-row> -->
+
+    <ion-row style="padding-top:3px;">
+      
+          <button ion-button color="danger" outline class="btn" col-6 (click)="donors()">
+              <img  class="btn-img" src="./assets/imgs/b6.png"/>
+              المتبرعين           
+         </button>
+       
+         <button ion-button color="danger" outline class="btn" col-6 (click)="addDonors()">
+            <img  class="btn-img" src="./assets/imgs/b5.png"/>
+            كن متبرع
+            </button>
+      </ion-row>
+      <!-- <ion-row style="padding-top:30px;">
+ 
+
+        </ion-row> -->
+</ion-grid>
+
+  <ion-slides *ngIf="x==1"  pager loop >
     <ion-slide>
       <img src="./assets/imgs/blood/blood1.jpg" class="slide-image"/>
       <h3 class="slide-title">محتاج دم؟</h3>

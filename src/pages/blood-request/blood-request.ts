@@ -4,6 +4,7 @@ import { BloodRequestProvider } from '../../providers/crud/bloodRequestProvider'
 import { ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {LoginPage} from '../login/login';
+import {Http, Headers} from '@angular/http';
 
 /**
  * Generated class for the BloodRequestPage page.
@@ -32,6 +33,7 @@ export class BloodRequestPage {
   constructor(public navCtrl: NavController, 
     public BloodRequestProvider:BloodRequestProvider,
     public storage: Storage ,
+    public http :Http ,
     private toastCtrl: ToastController,
     public navParams: NavParams) {
   }
@@ -53,6 +55,7 @@ export class BloodRequestPage {
         position: 'top'
       });
       toast.present();
+      this.sendNotification(this.requestData.location,this.requestData.bloodtype,this.requestData.state);
     },(err)=>{
       console.log("insert err: "+ err)
       console.log("this.myreq: "+ JSON.stringify(this.requestData))
@@ -67,4 +70,19 @@ export class BloodRequestPage {
         }   
     });
   }
+
+  sendNotification(location,bloodtype,state){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json;');
+    headers.append('Authorization','Basic NDkxMzNlMWYtMzE5OS00MjY0LTlhZmMtZjg3OWM2MmYyZTk3');
+      let body ={
+        "app_id": "51ddcf0d-ec69-424f-a225-4c92a7b01dfb",
+        "included_segments": ["All"],
+        "data": {"foo": "bar"},
+        "contents": {"en":"يوجد شخص يحتاج الى التبرع بالدم "+bloodtype+"  في محافظة " +state}
+      };
+      this.http.post('https://onesignal.com/api/v1/notifications',JSON.stringify(body),{headers: headers}).map(res=>res.json()).subscribe(data=>{
+        console.log(data);
+      })
+    }
 }

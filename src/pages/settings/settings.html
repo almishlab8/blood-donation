@@ -14,17 +14,36 @@
 
 <ion-content padding>
 
+  <ion-list no-border >
+        
+    <ion-list-header>
+      شكل الصفحة الرئيسية 
+    </ion-list-header>
 
+    <ion-item>
+      <ion-toggle color="dark-red" [(ngModel)]="toggle01" (ionChange)="toggleTwo()"></ion-toggle>
+      <ion-label>
+        قياسي
+      </ion-label>
+      <ion-icon name='apps' item-start></ion-icon>
+     
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle color="dark-red"  [(ngModel)]="toggle02" (ionChange)="toggleOne()"></ion-toggle>
+      <ion-label>
+       حديث
+      </ion-label>
+      <ion-icon name='albums' item-start></ion-icon>
+   
+    </ion-item>
+
+</ion-list>
 
    <ion-list>
-  
+    <ion-list-header>
       عن التطبيق
-   
-  <ion-item  *ngIf="isLogin">
-    {{userName}}
-        <ion-icon name='person' item-start></ion-icon>
-  </ion-item>   
-   
+    </ion-list-header>
   <button ion-item  (click)="aboutModal()">
     معلومات التطبيق
     <ion-icon name='information-circle' item-start></ion-icon>
@@ -39,17 +58,30 @@
   </button>
 
 
-      <button ion-item *ngIf="isLogin ; let user; else showLogin" (click)="logout()">
-   تسجيل خروج 
-    <ion-icon ios="ios-log-out" md="md-log-out" item-start></ion-icon>
-  </button>  
-  <ng-template #showLogin>
-    <button ion-item (click)="login()">
-      تسجيل الدخول 
-       <ion-icon ios="ios-log-in" md="md-log-in" item-start></ion-icon>
+
+
+
+</ion-list>
+  
+ 
+<ion-list  >
+  <ion-list-header>
+معلومات المستخدم
+</ion-list-header>
+    <ion-item  *ngIf="isLogin">
+      {{userName}}
+          <ion-icon name='person' item-start></ion-icon>
+    </ion-item> 
+
+    <button ion-item *ngIf="isLogin ; let user; else showLogin" (click)="logout()">
+      تسجيل خروج 
+       <ion-icon ios="ios-log-out" md="md-log-out" item-start></ion-icon>
      </button>  
-  </ng-template>
-
-
+     <ng-template #showLogin>
+       <button ion-item (click)="login()">
+         تسجيل الدخول 
+          <ion-icon ios="ios-log-in" md="md-log-in" item-start></ion-icon>
+        </button>  
+     </ng-template>
 </ion-list>
 </ion-content>

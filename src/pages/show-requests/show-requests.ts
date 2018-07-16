@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { BloodRequestProvider } from '../../providers/crud/bloodRequestProvider';
 import { Storage } from '@ionic/storage';
@@ -14,6 +14,7 @@ export class ShowRequestsPage {
 
   mydata:any
   userId:any
+  filter=1
   constructor(public navCtrl: NavController,
     private toastCtrl: ToastController,
     public BloodRequestProvider:BloodRequestProvider,public storage: Storage ) {
@@ -48,5 +49,23 @@ export class ShowRequestsPage {
         console.log("insert err: "+ err)
       })
       
+    }
+
+    doRefresh(refresher) {
+      
+      this.BloodRequestProvider.getPosts().then((data) => {
+     
+        this.mydata = data["data"] 
+        this.storage.get('userId').then((value) => {
+          this.userId=value;
+ 
+        });
+        console.log( this.mydata)
+      });
+  
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        refresher.complete();
+      }, 2000);
     }
 }
