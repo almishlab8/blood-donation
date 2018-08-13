@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { BloodRequestProvider } from '../../providers/crud/bloodRequestProvider';
 import { Storage } from '@ionic/storage';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @IonicPage()
@@ -17,6 +18,7 @@ export class ShowRequestsPage {
   filter=1
   constructor(public navCtrl: NavController,
     private toastCtrl: ToastController,
+    private callNumber: CallNumber,
     public BloodRequestProvider:BloodRequestProvider,public storage: Storage ) {
 
       this.BloodRequestProvider.getPosts().then((data) => {
@@ -67,5 +69,12 @@ export class ShowRequestsPage {
         console.log('Async operation has ended');
         refresher.complete();
       }, 2000);
+    }
+
+
+    call(phone){
+      this.callNumber.callNumber(phone , true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
     }
 }

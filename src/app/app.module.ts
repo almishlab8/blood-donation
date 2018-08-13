@@ -37,6 +37,7 @@ import { FeedbackProvider } from '../providers/crud/feedbackProvider';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http'; 
 import { OneSignal } from '@ionic-native/onesignal';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { OneSignal } from '@ionic-native/onesignal';
     StatusBar,
     OneSignal,
     SplashScreen,
+    CallNumber,
     AuthProvider,
     BloodRequestProvider,
     FeedbackProvider,

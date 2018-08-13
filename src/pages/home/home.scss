@@ -1,12 +1,20 @@
 ion-content {
     
     font-family: 'Droid Arabic Kufi', serif;
-    
+    .button-inner {
+
+        display: grid;
+     
+    }
 }
 .btn{
     height: 140px;
     font-size: 20px;
     background-color: #b7514d;
+    color:#fff;
+}
+.btn:hover{
+    background-color: #b7514d !important;
     color:#fff;
 }
 .btn-img{
@@ -24,9 +32,4 @@ padding-bottom: 2px;
     flex: 0 0 48%;
     width: 48%;
     max-width: 48%;
-}
-.button-inner {
-
-    display: grid;
- 
 }

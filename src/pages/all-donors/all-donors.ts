@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { DonorProvider } from '../../providers/crud/donorProvider';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular';
+import { CallNumber } from '@ionic-native/call-number';
 
 /**
  * Generated class for the AllDonorsPage page.
@@ -24,7 +25,7 @@ export class AllDonorsPage {
 
   constructor(public navCtrl: NavController,
     private toastCtrl: ToastController,
-
+    private callNumber: CallNumber,
     public DonorProvider:DonorProvider,public storage: Storage ) {
 
       this.DonorProvider.getPosts().then((data) => {
@@ -74,7 +75,11 @@ export class AllDonorsPage {
     }
 
 
-
+    call(phone){
+      this.callNumber.callNumber(phone , true)
+      .then(() => console.log('Launched dialer!'))
+      .catch(() => console.log('Error launching dialer'));
+    }
 
     
 }
