@@ -1,3 +1,5 @@
+import { RequsetSelectStatePageModule } from './../pages/requset-select-state/requset-select-state.module';
+import { SelectStatePage } from './../pages/select-state/select-state';
 import { SettingsPageModule } from './../pages/settings/settings.module';
 import { RegisterPageModule } from './../pages/register/register.module';
 import { LoginPageModule } from './../pages/login/login.module';
@@ -16,7 +18,6 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SettingsPage } from '../pages/settings/settings';
@@ -38,6 +39,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http'; 
 import { OneSignal } from '@ionic-native/onesignal';
 import { CallNumber } from '@ionic-native/call-number';
+import { SelectStatePageModule } from '../pages/select-state/select-state.module';
+import { RequsetSelectStatePage } from '../pages/requset-select-state/requset-select-state';
 
 
 @NgModule({
@@ -46,15 +49,17 @@ import { CallNumber } from '@ionic-native/call-number';
   
    ContactPage,
     HomePage,
-  //     AboutPage,
-  //   SettingsPage,
-  //  DevelopersPage,
-  //   AllDonorsPage,
-  //   BloodRequestPage,
-  //   ShowRequestsPage,
-  //   DonorsRegisterPage,
-  //   LoginPage,
-  //   RegisterPage,
+//       AboutPage,
+//     SettingsPage,
+//    DevelopersPage,
+//     AllDonorsPage,
+//     BloodRequestPage,
+//     ShowRequestsPage,
+//     DonorsRegisterPage,
+//     LoginPage,
+//     RegisterPage,
+//   SelectStatePage,
+//  RequsetSelectStatePage,
     TabsPage
   ],
   imports: [
@@ -69,6 +74,8 @@ import { CallNumber } from '@ionic-native/call-number';
     AboutPageModule,
     DevelopersPageModule,
     AllDonorsPageModule,
+    SelectStatePageModule,
+    RequsetSelectStatePageModule,
     IonicModule.forRoot(MyApp, {backButtonText: 'رجوع'},),
     IonicStorageModule.forRoot()  ,
     HttpModule 
@@ -87,6 +94,8 @@ import { CallNumber } from '@ionic-native/call-number';
     DonorsRegisterPage,
     LoginPage,
     RegisterPage,
+    SelectStatePage,
+    RequsetSelectStatePage,
     TabsPage
   ],
   providers: [

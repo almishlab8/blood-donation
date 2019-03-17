@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content >
-  <ion-grid *ngIf="x==0">
+  <ion-grid >
            <img src="./assets/imgs/index.png" height="185px" alt=""> 
     <ion-row style="padding-top:6px;">
         <button ion-button color="danger" outline class="btn" col-6  (click)="request()">
@@ -18,11 +18,6 @@
           المحتاجين                
      </button>
     </ion-row>
-
-    <!-- <ion-row style="padding-top:30px;">
-
-
-    </ion-row> -->
 
     <ion-row style="padding-top:3px;">
       
@@ -36,13 +31,10 @@
             كن متبرع
             </button>
       </ion-row>
-      <!-- <ion-row style="padding-top:30px;">
- 
 
-        </ion-row> -->
 </ion-grid>
 
-  <ion-slides *ngIf="x==1"  pager loop >
+  <!-- <ion-slides *ngIf="x==1"  pager loop >
     <ion-slide>
       <img src="./assets/imgs/blood/blood1.jpg" class="slide-image"/>
       <h3 class="slide-title">محتاج دم؟</h3>
@@ -57,7 +49,7 @@
       <img src="./assets/imgs/blood/blood2.jpg" class="slide-image"/>
       <h3 class="slide-title">محتاج متبرع بالدم؟</h3>
       <p class="dis">ابحث هنا عن جميع المتبرعين الذين يستطيعون مساعدتك وتلبية ما تحتاج</p>
-      <button  ion-button large clear icon-end color="danger" (click)="donors()">
+      <button  ion-button large clear icon-end color="danger" (click)="showDonorsState()">
           دخول
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
@@ -67,7 +59,7 @@
       <img src="./assets/imgs/blood/blood4.png" class="slide-image"/>
       <h3 class="slide-title"> تريد تتبرع الان ؟</h3>
       <p class="dis">يعرض هنا جميع الاشخاص الذين هم بحاجة الى تبرع دم مع بياناتهم</p>
-      <button  ion-button large clear icon-end color="danger" (click)="showRequried()">
+      <button  ion-button large clear icon-end color="danger" (click)="showRequsetState()">
           دخول
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
@@ -83,5 +75,5 @@
     </ion-slide>
 
   </ion-slides>
-  
+   -->
 </ion-content>

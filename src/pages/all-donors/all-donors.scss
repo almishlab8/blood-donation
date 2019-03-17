@@ -1,4 +1,5 @@
 page-all-donors {
+
 .select-md {
     padding: 0px;
 }
@@ -7,6 +8,11 @@ page-all-donors {
     color: white;
     font-size: large;
 }
+.filter-btn{
+    direction: rtl;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
 }
 .card{
     direction: rtl;
@@ -18,4 +24,43 @@ page-all-donors {
     float: left;
     color: #be5251;
     font-size: 1.6em;
+}
+    .loading-md .loading-wrapper {
+        color: #b7514e;
+        text-align: right;
+    }
+    .select-text {
+        padding-right: 20px !important;
+        color: white;
+        font-size: small !important;
+    }
+     .select-icon {
+        position: relative;
+        width: 12px;
+        height: 18px;
+        display: none;
+    }
+    ion-select {
+    
+        max-width: 66% !important;
+    }
+    .select-ios {
+        padding: 0px !important;
+    }
+    .alert-head {
+        text-align: center !important;
+        padding: 24px 24px 20px;
+        color: #b7514e !important;
+    }
+    .select-popover ion-list {
+        margin: -1px 0;
+        direction: rtl !important;
+    }
+
+
+}
+.loading-wrapper {
+    color: #b7514e !important;
+
+    text-align: center !important;
 }

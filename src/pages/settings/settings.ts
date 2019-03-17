@@ -28,7 +28,7 @@ x:number = 1;
     private toastCtrl: ToastController,
     public navParams: NavParams,public storage: Storage ,
     public modalCtrl: ModalController) {
-    this.sendPush();
+   this.sendPush();
 
       this.storage.get('toggle01').then((val) => {
         this.toggle01=val;

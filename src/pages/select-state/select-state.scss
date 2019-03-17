@@ -1,0 +1,47 @@
+page-select-state {
+    ion-row{
+        padding:5px;
+    }
+
+    .button{
+    width:100%;
+    background-color:#b7514e;
+    opacity: 0.9;
+    overflow: hidden;
+    height: 5.6rem;
+}
+.button:hover{
+    background-color: #b7514d !important;
+    color:#fff;
+}
+ion-content{
+    text-align: center;
+}
+
+img {
+    max-width: 60%;
+    height:100%;
+    border: 0;
+    
+    float: left;
+    
+   
+}
+img { height:100%; width:45px;position: absolute;
+    left:0%; }
+
+
+p{
+    overflow: visible;
+    font-size:13pt;
+    float: left;
+    position: relative;
+    right:-20px;   
+}
+
+
+.hd {
+color:#b7514e;
+ 
+}
+}

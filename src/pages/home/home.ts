@@ -6,6 +6,8 @@ import {ShowRequestsPage} from '../show-requests/show-requests';
 import {DonorsRegisterPage} from '../donors-register/donors-register';
 import { OneSignal } from '@ionic-native/onesignal';
 import { Storage } from '@ionic/storage';
+import { SelectStatePage } from '../select-state/select-state';
+import { RequsetSelectStatePage } from '../requset-select-state/requset-select-state';
 
 @Component({
   selector: 'page-home',
@@ -47,6 +49,13 @@ export class HomePage {
     }
     showRequried(){
         this.navCtrl.push(ShowRequestsPage);
+    }
+ 
+    showDonorsState(){
+        this.navCtrl.push(SelectStatePage);
+    }
+    showRequsetState(){
+        this.navCtrl.push(RequsetSelectStatePage);
     }
  
     donors(){

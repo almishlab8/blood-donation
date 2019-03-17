@@ -8,3 +8,12 @@
 }.back-button.show-back-button {
     font-family: 'Droid Arabic Kufi', serif; 
 }
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+  font-weight: 300;
+  src:  url('../assets/fonts/DroidKufi-Regular.woff2') format('woff2');
+}
+*{
+    font-family: 'Droid Arabic Kufi'; 
+}

@@ -8,7 +8,7 @@
 
   <ion-navbar color="dark-red">
     <ion-title>المتبرعيين</ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
         <button ion-button icon-only>
           <ion-icon name="funnel"></ion-icon>
         </button>
@@ -24,9 +24,60 @@
             <ion-option value="AB-">AB−</ion-option>
             <ion-option value="AB+">AB+</ion-option>
         </ion-select>
-     </ion-buttons>
+     </ion-buttons> -->
   </ion-navbar>
- 
+  <ion-grid style="background-color: #b7514d">
+
+        <ion-row>
+    
+          <ion-col col-6 >
+                <ion-buttons end  class="filter-btn">
+                        <ion-icon name="funnel"></ion-icon>
+                        تصفية حسب فصيلة الدم
+                        <ion-select  [(ngModel)]="filter" interface="popover">
+                            <ion-option value="1">الكل</ion-option>
+                            <ion-option value="A+">A+</ion-option>
+                            <ion-option value="A−">A-</ion-option>
+                            <ion-option value="O−">O−</ion-option>
+                            <ion-option value="O+">O+</ion-option>
+                            <ion-option value="B−">B− </ion-option>
+                            <ion-option value="B+">B+</ion-option>
+                            <ion-option value="AB−">AB−</ion-option>
+                            <ion-option value="AB+">AB+</ion-option>
+                        </ion-select>
+                     </ion-buttons>
+        </ion-col>
+    
+        <ion-col col-6 >
+                <ion-buttons end  class="filter-btn">
+                        <ion-icon name="funnel"></ion-icon>
+                        تصفية حسب المحافظات
+                        <ion-select  [(ngModel)]="states" interface="popover">
+                            <ion-option value="1">الكل</ion-option>
+                            <ion-option value="بغداد">بغداد</ion-option>
+                            <ion-option value="نينوى">نينوى</ion-option>
+                            <ion-option value="البصرة">البصرة</ion-option>
+                            <ion-option value="اربيل">اربيل</ion-option>
+                            <ion-option value="صلاح الدين">صلاح الدين</ion-option>
+                            <ion-option value="ذي قار">ذي قار</ion-option>
+                            <ion-option value="كركوك">كركوك</ion-option>
+                            <ion-option value="الانبار+">الانبار</ion-option>
+                            <ion-option value="القادسية">القادسية</ion-option>
+                            <ion-option value="دهوك">دهوك</ion-option>
+                            <ion-option value="ديالى">ديالى</ion-option>
+                            <ion-option value="ميسان">ميسان</ion-option>
+                            <ion-option value="واسط">واسط</ion-option>
+                            <ion-option value="كربلاء">كربلاء</ion-option>
+                            <ion-option value="السليمانية">السليمانية</ion-option>
+                            <ion-option value="بابل">بابل</ion-option>
+                            <ion-option value="النجف">النجف</ion-option>
+                            <ion-option value="المثنى">المثنى</ion-option>
+                        </ion-select>
+                     </ion-buttons>
+        </ion-col>
+    
+        </ion-row>
+      </ion-grid>
 </ion-header>
 
 
@@ -39,36 +90,38 @@
               </ion-refresher-content>
               </ion-refresher>
         
+        <h1>{{dd}}</h1>
+<div *ngFor="let item of donors  ">
+        <ion-card *ngIf="item.hide == 0 && ( (item.bloodtype == filter)  || (filter == 1) ) && ((item.state == states) || (states == 1))">
+                <ion-grid >
+                    <ion-item  >
+                        <ion-avatar item-start>
+                            <img src="./assets/imgs/user.png">
+                        </ion-avatar>
+                        <h2>{{item.name}}</h2>
+                        <ion-icon *ngIf="item.added_by == userId"name="trash" class="deletBtn" (click)="delete(item.id)"></ion-icon>
         
-
-  <ion-card *ngFor="let item of donordata  ">
-    <ion-grid *ngIf="item.hide == 0 && ((item.bloodtype == filter) || (filter == 1))" >
-            <ion-item  >
-                <ion-avatar item-start>
-                    <img src="./assets/imgs/user.png">
-                </ion-avatar>
-                <h2>{{item.name}}</h2>
-                <ion-icon *ngIf="item.added_by == userId"name="trash" class="deletBtn" (click)="delete(item.id)"></ion-icon>
-
-            </ion-item>
-    
-            <ion-card-content>
-                <p>فصيلة الدم : {{item.bloodtype}}</p>
-                <p> المحافظة : {{item.state}}</p>
-                <p> العنوان : {{item.location}}</p>
-                <p>  ملاحظات اخرى   : {{item.note}} </p>
-               
-            </ion-card-content>
-    
-            <ion-row>
-                <ion-col>
-                    <button ion-button block class="callBtn" color="dark-green" (click)="call(item.phone)">
-                    <div style="margin:8px">  اتصل <ion-icon style="padding-right: 15px" name="call" ></ion-icon>
-                    </div>
-                  </button>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-        </ion-card>
+                    </ion-item>
+            
+                    <ion-card-content>
+                        <p>فصيلة الدم : {{item.bloodtype}}</p>
+                        <p> المحافظة : {{item.state}}</p>
+                        <p> العنوان : {{item.location}}</p>
+                        <p>  ملاحظات اخرى   : {{item.note}} </p>
+                        
+                    </ion-card-content>
+            
+                    <ion-row>
+                        <ion-col>
+                            <button ion-button block class="callBtn" color="dark-green" (click)="call(item.phone)">
+                            <div style="margin:8px">  اتصل <ion-icon style="padding-right: 15px" name="call" ></ion-icon>
+                            </div>
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                </ion-card>
+</div>
+  
 
 </ion-content>
